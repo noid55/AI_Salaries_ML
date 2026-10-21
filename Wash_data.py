@@ -4,9 +4,12 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import os
 
-
-
 if __name__ == '__main__':
-    test = pd.read_csv("Salaries.csv")
-    print(test.head(5).to_string())
+    df = pd.read_csv("Salaries.csv")
+
+    print(df["job_title"].unique())
+    unique_titles = df["job_title"].unique()
+
+
+
 
