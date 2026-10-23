@@ -38,7 +38,10 @@ exposure_df = pd.read_csv(
     },
 )
 
-# Maybe write a summary of this step explaining data type choices
+# Reasoning for dtype choices:
+# Job titles and other classifications are labels, not quantities.
+# Salary amounts, scores, and years should remain numeric.
+# We have not found any na types, so we did not use this argument.
 
 # Inspect the imported data
 print(salary_df.shape) #to check nothing was lost
@@ -46,6 +49,23 @@ print(salary_df.info()) #to see the types and the missing values together
 
 print(exposure_df.shape)
 print(exposure_df.info())
+
+'''
+the exposure dataset contains 6 null values
+    score_2023: row 2026, 2306
+    predicted_score_2025_gpt4o: row 1782, 2103, 2897
+    predicted_score_2025_gemini: row 776
+    
+    To create a separate cleaned DataFrame that drops the rows with missing values:
+    
+        comparison_df = df.dropna(
+        subset=[
+            "score_2023",
+            "gpt_prediction_2025",
+            "gemini_prediction_2025"
+        ]
+    ).copy()    
+'''
 
 
 # 3. Explore data
