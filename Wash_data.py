@@ -4,6 +4,11 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import os
 
+# Wash_data.py: job title cleaning
+# Ida:   rows  1-141
+# Ramlah: rows 142-282 
+# Eirik:  rows 283 -
+
 
 
 if __name__ == '__main__':
@@ -26,7 +31,9 @@ FIXES = {
     "Cdd": "Unknown",
 }
 
-GROUPS = {
+# --- Ramlah: rows 142-282 ---
+
+GROUPS_Ramlah = {
     "Developer": [
         "Head of Data", "AI Architect", "Business Intelligence Developer",
         "AI Solutions Lead", "Artificial Intelligence Engineer",
@@ -93,9 +100,10 @@ GROUPS = {
 }
 
 CATEGORIES = {}
-for category, titles in GROUPS.items():
-    for title in titles:
-        CATEGORIES[title] = category
+for group in [GROUPS_Ramlah]:
+    for category, titles in group.items():
+        for title in titles:
+            CATEGORIES[title] = category
 
 
 def wash_job_titles(df):
