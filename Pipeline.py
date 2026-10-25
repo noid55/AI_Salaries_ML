@@ -2,9 +2,7 @@
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
-from Wash_data import wash_job_titles
-
-
+from Wash_data import wash_data
 
 # 2. Load data
 # we want to avoid silent type errors, so we use dtype to fix column data type.
@@ -74,10 +72,13 @@ the exposure dataset contains 6 null values
 
 
 # 4. Clean data
-clean_salary_df = wash_job_titles(salary_df)
-print(clean_salary_df.shape)
-print(clean_salary_df["job_category"].value_counts(dropna=False))
-#clean_exposure_df = exposure_df.copy()
+if __name__ == '__main__':
+
+    clean_salary_df = wash_data(salary_df)
+    print(clean_salary_df.shape)
+    print(clean_salary_df["job_category"].value_counts(dropna=False))
+
+
 
 
 

@@ -10,10 +10,6 @@ if __name__ == '__main__':
     pd.set_option("display.max_columns", 100)
     sns.set_style("whitegrid")
 
-    OUTPUT_DIR = "/kaggle/working"
-    os.makedirs(OUTPUT_DIR, exist_ok=True)
-
-
     SALARIES_URL = "https://raw.githubusercontent.com/foorilla/ai-jobs-net-salaries/main/salaries.csv"
     salaries_raw = pd.read_csv(SALARIES_URL)
 
